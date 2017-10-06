@@ -31,7 +31,7 @@
 - Has a _Merit_ contract associated
 - Only one _Merit_ contract can be used by a _Governance_ contract
 - _Merit_ is updated via the _Directory_ contract
-- A project may have multiple of them to handle different areas (funding, proposals, game rules...)
+- A project may have multiple of _Governance_ contract to manage the access to different systems (Vote proposals, createProsals, funding)
 
 ##IMerit (interface)
 - Is the signature interface for all _Merit_ contracts
