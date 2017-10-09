@@ -4,13 +4,13 @@
 - Is the access point to the platform
 - Has access to a registry of the projects associated to each user
 - Points to the _Deployer_ contract
-- Is controlled by a trusted entity for now. Will be controled by a _Governance_ contract in the future
+- Is controlled by a trusted entity for now. Will be controled by a set of _Governance_ contracts in the future
 - There is only one
 - Is for UX only. Rest of the contracts don't depend on it
 
 ##Deployer (contract) _undependable_
 - Deploys all the contracts that will form a project
-- Is controlled by a trusted entity for now. Will be controled by a _Governance_ contract in the future
+- Is controlled by a trusted entity for now. Will be controled by a set _Governance_ contracts in the future
 - Rest of the contracts don't depend on it, but is a trusted contract that facilitates the work.
 
 ##Directory (contract) _dependable_
@@ -20,8 +20,8 @@
 - It returns the contract address associated to an id
 
 - _Governance_ contracts rely on it to get
-- Has a _Governance_ contract associated
-- Only the _Governance_ is allowed to updated the directory
+- Has a set of _Governance_ contracts associated
+- Only the _Governance_ contracts are allowed to updated the directory
 
 ## Governance (set of contract references)
  - Includes
@@ -47,7 +47,6 @@
 - Has a _Merit_ contract associated
 - Controls authorization to vote for a proposal based on its _Merit_ contract
 
-
 ## IMerit (interface)
 - Is the signature interface for all _Merit_ contracts
 
@@ -63,7 +62,7 @@
 
 ##ProposalStorage (contract)
 - It stores all the proposals
-
+    
 
 
 
