@@ -18,28 +18,52 @@
 - It serves the same purpose as a proxy contract.
 - It is used to be able to update the rest of the contracts
 - It returns the contract address associated to an id
+
 - _Governance_ contracts rely on it to get
 - Has a _Governance_ contract associated
 - Only the _Governance_ is allowed to updated the directory
 
-##IGovernance (interface)
-- Is the signature interface for all _Governance_ contracts
+## Governance (set of contract references)
+ - Includes
+    + _CreateProposal_: contract implementing _iCreateProposal_
+    + _CreateProposalMerit_: contract implementing _IMerit_
+    + _VoteProposal_: contract implementing _iVoteProposal_
+    + _VoteProposalMerit_: contract implementing _IMerit_
+    + _ProposalStorage_: contract holding all proposals data
+    + owner : the only address that can modify a _Governance_
+- _CreateProposalMerit_ and _VoteProposalMerit_ can be the same
 
-##Governance (contract)
-- Implements _IGovernance_
-- Handles the voting
+## ICreateProposal (interface)
+
+## CreateProposal (contract)
+- Implements _ICreateProposal_
 - Has a _Merit_ contract associated
-- Only one _Merit_ contract can be used by a _Governance_ contract
-- _Merit_ is updated via the _Directory_ contract
-- A project may have multiple of _Governance_ contract to manage the access to different systems (Vote proposals, createProsals, funding)
+- Its _Merit_ contract is updated via the _Directory_ contract
+- Controls authorization to create proposal based on its _Merit_ contract
 
-##IMerit (interface)
+## IVoteProposal (interface)
+
+## VoteProposal (interface)
+- Has a _Merit_ contract associated
+- Controls authorization to vote for a proposal based on its _Merit_ contract
+
+
+## IMerit (interface)
 - Is the signature interface for all _Merit_ contracts
 
-## Merit (contract)
+## VoteProposalMerit (contract)
 - Implements _IMerit_
-- Defines the voting rights of an address
-- Multiple _Governance_ contracts may use the same _Merit_ contract
+- It's associated to a _VoteProposal_ contract
+- Defines the voting rights of an address based on the _Merit_ contract
+
+## CreateProposalMerit (contract)
+- Implements _IMerit_
+- It's associated to a _CreateProposal_ contract
+- Defines the voting rights of an address based on the _Merit_ contract
+
+##ProposalStorage (contract)
+- It stores all the proposals
+
 
 
 
