@@ -24,9 +24,15 @@
 - Has a set of _GovernanceSet_ contracts associated
 - Only the _GovernanceSet_ contracts are allowed to updated the directory
 
-## Governance (contract)
+## GovernanceBridge (contract)
 - Implements _ICreateProposal_ and _IVoteProposal_
 - It is the bridge with the Web3
+- Used as a proxy
+- Dispensable but convenient
+
+## GovernanceImplementation (contract)
+- Implements _ICreateProposal_ and _IVoteProposal_
+- Handles the specific logic of each project
 
 ## GovernanceSet (set of contract references)
  - Includes
